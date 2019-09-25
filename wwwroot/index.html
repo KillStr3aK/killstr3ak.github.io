@@ -31,7 +31,7 @@
 </head>
 
 <body>
-		<video autoplay muted loop id='mozikep'>
+		<video id='mozikep'>
 		  <source src="mozi.mp4" type="video/mp4">
 		</video>
 
@@ -53,9 +53,9 @@
             var interval = 10000;
 
             var player = videojs('my-video');
-			var mozi = videojs('mozikep');
+			//var mozi = videojs('mozikep');
             player.ready(function() {
-                mozi.play();
+                //mozi.play();
 
                 setInterval(function() {
                     if(!player.paused()) {
@@ -95,18 +95,18 @@
                 }
 
                 if(event.data.type === 'pause') {
-                    mozi.play();
+                    //mozi.play();
                     player.pause();
                 }
 
                 if(event.data.type === 'stop') {
                     player.pause();
-                    mozi.play();
+                    //mozi.play();
                     player.currentTime(0);
                 }
 
                 if(event.data.type === 'resume') {
-                    mozi.play();
+                    //mozi.play();
                     player.play();
                 }
 
