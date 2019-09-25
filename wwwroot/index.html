@@ -31,7 +31,9 @@
 </head>
 
 <body>
-
+		<video autoplay muted loop id='mozikep'>
+		  <source src="mozi.mp4" type="video/mp4">
+		</video>
 
         <video id='my-video' class='video-js vjs-fluid' preload='none'
         poster='https://i.imgur.com/dPaIjEW.jpg' data-setup='{"techOrder": ["html5", "youtube" ]}'>
@@ -49,12 +51,11 @@
   
         <script>
             var interval = 10000;
-            var splash_image = 'mozi.mp4';
-            var pause_image = 'mozi.mp4';
 
             var player = videojs('my-video');
+			var mozi = videojs('mozikep');
             player.ready(function() {
-                player.poster(splash_image);
+                mozi.play();
 
                 setInterval(function() {
                     if(!player.paused()) {
@@ -94,18 +95,18 @@
                 }
 
                 if(event.data.type === 'pause') {
-                    player.poster(pause_image);
+                    mozi.play();
                     player.pause();
                 }
 
                 if(event.data.type === 'stop') {
                     player.pause();
-                    player.poster(splash_image);
+                    mozi.play();
                     player.currentTime(0);
                 }
 
                 if(event.data.type === 'resume') {
-                    player.poster(splash_image);
+                    mozi.play();
                     player.play();
                 }
 
